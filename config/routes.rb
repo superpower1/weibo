@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
   resources :users
 
   # 资源路由的扩展路由之集合路由collection

@@ -2,7 +2,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @post.content %>
+  <%= @post.content %>, <%= @post.user.userName %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
