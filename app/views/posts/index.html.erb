@@ -11,6 +11,8 @@
   </thead>
 
   <tbody>
+    <!-- 因为在routes.rb中配置了命名路由所以这里可以直接使用show_post_path(1) -->
+    <%= link_to 'Direct to first weibo', show_post_path(1) %>
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.content %></td>
