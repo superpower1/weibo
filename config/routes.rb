@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+
   # 资源路由的扩展路由之集合路由collection
   resources :posts do
     # 单独配置集合路由
