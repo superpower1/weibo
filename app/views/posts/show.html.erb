@@ -2,7 +2,12 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @post.content %>, <%= @post.user.userName %>
+  <%= @post.content %>,
+  <% if @post.user.id == session[:user_id] %>
+    Myself
+  <% else %>
+    <%= @post.user.userName %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
