@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
+      # 这里使用的是sessions_helper中定义的login方法
+      login @user
       redirect_to @user
     else
       render 'new'
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete[:user_id]
+    logout if logged_in?
     render 'new'
   end
 end
